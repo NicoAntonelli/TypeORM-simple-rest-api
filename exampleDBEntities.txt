@@ -1,0 +1,89 @@
+// ATTENTION: this file is only illustrative.
+// You can put any of this entities on a POSTMAN request.
+// Entities & Nested Entities generates it's own ID.
+
+
+// Users
+[
+    {
+        "firstname": "Nico",
+        "lastname": "Antonelli"
+    },
+    {
+        "firstname": "Ale",
+        "lastname": "Recalde"
+    },
+    {
+        "firstname": "Joshua",
+        "lastname": "Acciarri"
+    }
+]
+
+
+// User (Nested Example)
+{
+    "firstname": "Nico",
+    "lastname": "Antonelli"
+    "profile": {
+        "nickname": "niconelli",
+        "aboutme": "I'm a human... well thats what they said"
+    }
+}
+
+
+// Profiles
+[
+    {
+        "nickname": "niconelli",
+        "aboutme": "I'm a human... well thats what they said"
+    },
+    {
+        "nickname": "alereca",
+        "aboutme": "Linux User"
+    },
+    {
+        "nickname": "jsN",
+        "aboutme": "Don't cry for me Discrethe Maths, the truth it's I never left you"
+    }
+]
+
+
+// Languages
+[
+    {
+        "name": "Python",
+        "description": "Ideal for Computer Science"
+    },
+    {
+        "name": "JavaScript",
+        "description": "Just JavaScript"
+    },
+    {
+        "name": "C++",
+        "description": "Low-Level Mastery"
+    },
+    {
+        "name": "C#",
+        "description": "Porta"
+    },
+    {
+        "name": "Java",
+        "description": "It's JavaScript... without Script"
+    },
+    {
+        "name": "C",
+        "description": "God's programming language"
+    },
+    {
+        "name": "Cobol",
+        "description": "Please god no"
+    },
+    {
+        "name": "MatLab",
+        "description": "Andrew NG's Favourite"
+    }
+]
+
+
+// Photos
+[]
