@@ -1,10 +1,10 @@
 {
     "type": "mysql",
     "host": "localhost",
-    "port": 3306,
+    "port": 2306,
     "username": "root",
     "password": "",
-    "database": "typeormtestdb",
+    "database": "typeorm_test_db",
     "entities":  ["dist/entity/**/*.js"],
     "synchronize": true
  }
