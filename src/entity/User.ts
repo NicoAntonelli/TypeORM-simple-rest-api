@@ -1,4 +1,5 @@
-import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm'
+import {Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn} from 'typeorm'
+import {Profile} from './Profile'
 
 @Entity()
 export class User {
@@ -10,4 +11,8 @@ export class User {
     
     @Column()
     lastname: string;
+
+    @OneToOne(type => Profile, {nullable: true, cascade: ["insert", "update"]})
+    @JoinColumn()
+    profile: Profile;
 }

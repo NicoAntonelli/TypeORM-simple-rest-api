@@ -6,6 +6,9 @@ import cors from 'cors'
 import {createConnection} from 'typeorm'
 
 import userRoutes from './routes/user.routes'
+import profileRoutes from './routes/profile.routes'
+import photoRoutes from './routes/photo.routes'
+import languageRoutes from './routes/language.routes'
 
 const app = express();
 createConnection();
@@ -17,6 +20,9 @@ app.use(express.json());
 
 // Routes
 app.use(userRoutes);
+app.use(profileRoutes);
+app.use(photoRoutes);
+app.use(languageRoutes);
 
-app.listen(3000);
-console.log("Server on Port", 3000);
+const port = 3000;
+app.listen(port, () => console.log("Server on Port", port));
