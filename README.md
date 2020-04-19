@@ -5,5 +5,6 @@
 * Node.JS
 * TypeORM
 * Express
+* JWT
 * MySQL
 * Some Middlewares

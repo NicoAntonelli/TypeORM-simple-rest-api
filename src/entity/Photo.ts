@@ -9,6 +9,6 @@ export class Photo {
     @Column()
     url: string;
 
-    @ManyToOne(type => Profile, profile => profile.photos, {nullable: true, cascade: ["insert", "update"]})
+    @ManyToOne(type => Profile, profile => profile.photos, {nullable: true, cascade: ["insert", "update"], onUpdate: "CASCADE"})
     profile: Profile;
 }

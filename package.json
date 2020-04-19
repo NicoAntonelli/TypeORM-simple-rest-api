@@ -22,7 +22,9 @@
   "homepage": "https://github.com/NicoAntonelli/TypeORM-simple-rest-api#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
@@ -30,7 +32,9 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.6",
+    "@types/jsonwebtoken": "^8.3.9",
     "@types/morgan": "^1.9.0",
     "@types/node": "^13.11.1",
     "tsc-watch": "^4.2.3",

@@ -13,9 +13,9 @@ export class Profile {
     @Column()
     aboutme: string;
 
-    @OneToMany(type => Photo, photo => photo.profile, {nullable: true, cascade: ["insert", "update"]})
+    @OneToMany(type => Photo, photo => photo.profile, {nullable: true, cascade: ["insert", "update"], onUpdate: "CASCADE"})
     photos: Photo[];
 
-    @ManyToMany(type => Language, {nullable: true, cascade: ["insert", "update"]})
+    @ManyToMany(type => Language, {nullable: true, cascade: ["insert", "update"], onUpdate: "CASCADE"})
     languages: Language[];
 }
