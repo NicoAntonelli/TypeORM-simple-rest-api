@@ -1,18 +1,20 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, Unique, OneToOne, JoinColumn } from 'typeorm'
 import { Profile } from './Profile'
 
 @Entity()
+@Unique(["username", "email"])
 export class User {
     @PrimaryGeneratedColumn()
     id: number;
-    
-    // TO-DO: Set Password (Hashed) for User, and unique email. Move Names to profile.
 
     @Column()
-    firstname: string;
+    email: string;
     
     @Column()
-    lastname: string;
+    username: string;
+    
+    @Column()
+    password: string;
 
     @OneToOne(type => Profile, {nullable: true, cascade: ["insert", "update"], onUpdate: "CASCADE"})
     @JoinColumn()

@@ -1,31 +1,37 @@
 // ATTENTION: this file is only illustrative.
 // You can put any of this entities on a POSTMAN request.
 // Entities & Nested Entities generates it's own ID.
+// Passwords are Hashed and Salted.
 
 
 // Users
 [
     {
-        "firstname": "Nico",
-        "lastname": "Antonelli"
+        "email": "nico@test.com",
+        "username": "nicotest",
+        "password": "test120"
     },
     {
-        "firstname": "Ale",
-        "lastname": "Recalde"
+        "email": ale@test.com,
+        "username": "aletest",
+        "password": "test120"
     },
     {
-        "firstname": "Joshua",
-        "lastname": "Acciarri"
+        "email": josh@test.com,
+        "userkname": "joshtest",
+        "password": "test120"
     }
 ]
 
 
 // User (Nested Example)
 {
-    "firstname": "Nico",
-    "lastname": "Antonelli"
+    "email": "nico@test.com",
+    "username": "nicotest",
+    "password": "test120"
     "profile": {
-        "nickname": "niconelli",
+        "firstname": "Nico",
+        "lastname": "Antonelli"
         "aboutme": "I'm a human... well thats what they said"
     }
 }
@@ -34,15 +40,18 @@
 // Profiles
 [
     {
-        "nickname": "niconelli",
+        "firstname": "Nico",
+        "lastname": "Antonelli",
         "aboutme": "I'm a human... well thats what they said"
     },
     {
-        "nickname": "alereca",
+        "firstname": "Ale",
+        "lastname": "Recalde",
         "aboutme": "Linux User"
     },
     {
-        "nickname": "jsN",
+        "firstname": "Joshua",
+        "lastname": "Acciarri",
         "aboutme": "Don't cry for me Discrethe Maths, the truth it's I never left you"
     }
 ]

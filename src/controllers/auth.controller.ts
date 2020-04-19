@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { getRepository } from "typeorm";
+import { getRepository, Like } from "typeorm";
 import { User } from "../entity/User";
-import jwt from 'jsonwebtoken'
+import { hashPassword, validatePassword } from "../utils/encrypt.util";
+import { newToken } from "../utils/token.util";
 
 // Root
 export const root = async (req: Request, res: Response): Promise<Response> => {
@@ -19,6 +20,7 @@ export const root = async (req: Request, res: Response): Promise<Response> => {
 
 // Sign Up
 export const signup = async (req: Request, res: Response): Promise<Response> => {
+    req.body.password = await hashPassword(req.body.password);
     const newEntity = getRepository(User).create(req.body);
     const savedEntity = await getRepository(User).save(newEntity);
     // try {
@@ -36,19 +38,29 @@ export const signup = async (req: Request, res: Response): Promise<Response> => 
     //     console.log("finally");
     //     return res.send("finally");
     // }
-    let idd = JSON.stringify(savedEntity);
-    console.log(idd);
-    let id = 4; // Hardcoding provisionaly (I can't fix the bug yet)
-    const token: string = jwt.sign({_id: id}, process.env.SECRET_TOKEN || "tokentest");
+    const id = 4; // Hardcoding provisionaly (I can't fix the bug yet)
+    const token: string = newToken(id);
     return res.header('auth-token', token).json(savedEntity);
 };
 
 // Login
 export const login = async (req: Request, res: Response): Promise<Response> => {
-    return res.send("login");
+    const entity = await getRepository(User).findOne({email: req.body.email});
+    
+    if (entity === undefined) return res.status(400).json("Wrong Email or Password");
+    const validation: Boolean = await validatePassword(req.body.password, entity.password);
+    if (validation === false) return res.status(400).json("Wrong Email or Password");
+
+    const token: string = newToken(entity.id);
+    return res.header('auth-token', token).json(entity);
 };
 
 // My Profile
 export const myprofile = async (req: Request, res: Response): Promise<Response> => {
-    return res.send("myprofile");
+    if (req.header('auth-token') === undefined) {
+        return res.status(400).json("Invalid Token");
+    }
+    const entity = await getRepository(User).findOne(2); // Hardcoded for a TSC Problem with Extensions
+    if (entity === undefined) res.status(400).json("User not found");
+    return res.json(entity);
 };

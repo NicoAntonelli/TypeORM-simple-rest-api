@@ -8,7 +8,10 @@ export class Profile {
     id: number;
     
     @Column()
-    nickname: string;
+    firstname: string;
+    
+    @Column()
+    lastname: string;
 
     @Column()
     aboutme: string;

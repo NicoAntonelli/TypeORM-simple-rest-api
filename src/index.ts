@@ -15,8 +15,8 @@ import languageRoutes from './routes/language.routes'
 // App Settings
 dotenv.config();
 const app: Application = express();
+const port: Number = 3000;
 const connection = createConnection();
-const port = 3000;
 
 // Middlewares
 app.use(cors());
@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
-app.use(authRoutes); // Under Construction
+app.use(authRoutes);
 app.use(userRoutes);
 app.use(profileRoutes);
 app.use(photoRoutes);
@@ -36,3 +36,5 @@ connection
 )
 .catch(err => console.log(err)
 );
+
+// TO-DO: Fix Request ID Extension (TSC Problem), and Fix ID Save Return (IDK)
