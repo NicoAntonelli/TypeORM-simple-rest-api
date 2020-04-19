@@ -1,6 +1,6 @@
-import {Request, Response} from 'express'
-import {getRepository} from 'typeorm'
-import {Photo} from '../entity/Photo'
+import { Request, Response } from 'express'
+import { getRepository } from 'typeorm'
+import { Photo } from '../entity/Photo'
 
 // Find All
 export const getPhotos = async (req: Request, res: Response): Promise<Response> => {

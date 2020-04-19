@@ -1,6 +1,6 @@
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany} from 'typeorm'
-import {Language} from './Language'
-import {Photo} from './Photo'
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, ManyToMany } from 'typeorm'
+import { Language } from './Language'
+import { Photo } from './Photo'
 
 @Entity()
 export class Profile {

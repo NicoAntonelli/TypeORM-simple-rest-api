@@ -1,2 +1,9 @@
 # TypeORM-simple-rest-api
-Mini Course of: Node.JS + TypeORM + Express + TypeScript + MySQL
+
+### I used:
+* TypeScript/JavaScript
+* Node.JS
+* TypeORM
+* Express
+* MySQL
+* Some Middlewares

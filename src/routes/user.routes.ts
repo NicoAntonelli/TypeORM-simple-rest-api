@@ -1,12 +1,12 @@
-import {Router} from 'express'
-const router = Router();
+import { Router } from 'express'
+const router: Router = Router();
 
-import {getUsers, createUser, getUser, updateUser, deleteUser} from '../controllers/user.controller'
+import { getUsers, createUser, getUser, updateUser, deleteUser } from '../controllers/user.controller'
 
-router.get('/users', getUsers);
-router.get('/users/:id', getUser);
-router.post('/users', createUser);
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser);
+router.get('/api/users', getUsers);
+router.get('/api/users/:id', getUser);
+router.post('/api/users', createUser);
+router.put('/api/users/:id', updateUser);
+router.delete('/api/users/:id', deleteUser);
 
-export default router
+export default router;

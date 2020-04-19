@@ -1,6 +1,6 @@
-import {Request, Response} from 'express'
-import {getRepository} from 'typeorm'
-import {Profile} from '../entity/Profile'
+import { Request, Response } from 'express'
+import { getRepository } from 'typeorm'
+import { Profile } from '../entity/Profile'
 
 // Find All
 export const getProfiles = async (req: Request, res: Response): Promise<Response> => {

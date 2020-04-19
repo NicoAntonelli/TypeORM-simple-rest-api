@@ -1,6 +1,6 @@
-import {Request, Response} from 'express'
-import {getRepository} from 'typeorm'
-import {Language} from '../entity/Language'
+import { Request, Response } from 'express'
+import { getRepository } from 'typeorm'
+import { Language } from '../entity/Language'
 
 // Find All
 export const getLanguages = async (req: Request, res: Response): Promise<Response> => {
