@@ -32,9 +32,11 @@ app.use(languageRoutes);
 
 // Main
 connection
-.then(db => app.listen(port, () => console.log("Server on Port", port))
-)
+.then(db => app.listen(port, () => {
+    console.log("Server on Port", port);
+    console.log("http://localhost:"+port+"/api");
+}))
 .catch(err => console.log(err)
 );
 
-// TO-DO: Fix Request ID Extension (TSC Problem), and Fix ID Save Return (IDK)
+// node require('crypto').randomBytes(64).toString('hex');

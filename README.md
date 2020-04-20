@@ -6,5 +6,6 @@
 * TypeORM
 * Express
 * JWT
+* Bcryptjs
 * MySQL
 * Some Middlewares

@@ -1,5 +1,13 @@
+// Request Extension
 declare namespace Express {
     export interface Request {
-        userId: string;
+        userId?: string;
     }
+}
+
+// Token's Payload Interface
+interface IPayLoad {
+    _id: string;
+    iat: number;
+    exp: number;
 }

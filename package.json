@@ -1,7 +1,7 @@
 {
   "name": "typeorm-simple-rest-api",
   "version": "1.0.0",
-  "description": "Mini Course of: Node.JS + TypeORM + TypeScript +MySQL",
+  "description": "I made an API with: JS/TS, Node, TypeORM, Express, JWT, Bcryptjs, MySQL...",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

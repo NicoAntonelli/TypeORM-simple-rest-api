@@ -16,29 +16,12 @@ export const root = async (req: Request, res: Response): Promise<Response> => {
     return res.send(msg);
 };
 
-// --- Under Construction
-
 // Sign Up
 export const signup = async (req: Request, res: Response): Promise<Response> => {
     req.body.password = await hashPassword(req.body.password);
-    const newEntity = getRepository(User).create(req.body);
+    const newEntity = getRepository(User).create(req.body) as unknown as User;
     const savedEntity = await getRepository(User).save(newEntity);
-    // try {
-    //     const repository = await getRepository(User);
-    //     const savedEntity: any = await repository.save(newEntity)
-    //     .then(ent => {
-    //         id = ent[0].id;
-    //         console.log("id:", id);
-    //         return res.json({"id": id});
-    //     });
-    // } catch(err) {
-    //     console.log("error:", err);
-    //     return res.send({message: 'superfailed', status: 500, err});
-    // } finally {
-    //     console.log("finally");
-    //     return res.send("finally");
-    // }
-    const id = 4; // Hardcoding provisionaly (I can't fix the bug yet)
+    const id = newEntity.id;
     const token: string = newToken(id);
     return res.header('auth-token', token).json(savedEntity);
 };
@@ -57,10 +40,14 @@ export const login = async (req: Request, res: Response): Promise<Response> => {
 
 // My Profile
 export const myprofile = async (req: Request, res: Response): Promise<Response> => {
-    if (req.header('auth-token') === undefined) {
-        return res.status(400).json("Invalid Token");
-    }
-    const entity = await getRepository(User).findOne(2); // Hardcoded for a TSC Problem with Extensions
+    // Token Validation Enabled
+    const entity = await getRepository(User).findOne(req.userId);
     if (entity === undefined) res.status(400).json("User not found");
     return res.json(entity);
+};
+
+// Logout
+export const logout = async (req: Request, res: Response): Promise<Response> => {
+    // Token Validation Enabled
+    return res.header('auth-token', '').json("Logout Successfully");
 };
