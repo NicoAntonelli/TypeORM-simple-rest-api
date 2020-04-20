@@ -6,12 +6,20 @@ import { newToken } from "../utils/token.util";
 
 // Root
 export const root = async (req: Request, res: Response): Promise<Response> => {
+    const port = 3000;
+    const base = "http://localhost:"+port+"/api";
     const msg = `
     TypeORM Simple Rest API, by: Nico Antonelli
     <hr>
-    Some Possible Routes: /api/users, /api/profiles, /api/languages, /api/photos, /api/myprofile...
-    <br>
-    ...Or send a Request with POSTMAN!
+    Some Possible Routes:<br>
+    <a href="${base}/users">/api/users</a><br>
+    <a href="${base}/profiles">/api/profiles</a><br>
+    <a href="${base}/languages">/api/languages</a><br>
+    <a href="${base}/photos">/api/photos</a><br>
+    <a href="${base}/myprofile">/api/myprofile</a>(Token Required)<br>
+    ...
+    <hr>
+    Send a Request with POSTMAN!
     `
     return res.send(msg);
 };
