@@ -4,7 +4,7 @@
   "description": "I made an API with: JS/TS, Node, TypeORM, Express, JWT, Bcryptjs, MySQL...",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --detectOpenHandles --colors",
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsc-watch --onSuccess \"node dist/index.js\""
@@ -36,9 +36,13 @@
     "@types/cors": "^2.8.6",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.1",
     "@types/jsonwebtoken": "^8.3.9",
     "@types/morgan": "^1.9.0",
     "@types/node": "^13.11.1",
+    "jest": "^25.4.0",
+    "jest-junit": "^10.0.0",
+    "ts-jest": "^25.4.0",
     "tsc-watch": "^4.2.3",
     "typescript": "^3.8.3"
   }
